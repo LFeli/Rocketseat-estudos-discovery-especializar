@@ -135,10 +135,25 @@ import './styles/seuArquivo.css';
 
 <br>
 
-#### Separando o CSS:
+##### Separando o CSS:
 Uma forma de separar os arquivos CSS são deixarmos os arquivos de estilizações globais na pasta styles. O que for referente a própria página nos iremos utilizar a seguinte ideia.
 
 Supomos que sua página se chame Home, você irá criar uma pasta chamada Home dentro da pasta "src" e dentro dela vc renomeara ou adiciar um arquivo com nome `index.jsx` e junto dele colocar um `style.css`.  
 > (OBS: Neste caso em especifico não precisamos passar o nome do arquivo no caminho da importação, so até a pasta, pois como padrão quando não tiver um arquivo especifíco o jsx irá procurar o index)
 
 Assim toda a estilização referente ao contéudo da index ficará por este style em especifico.
+
+##### Estilizando o CSS:
+Para estilizar o css via css_modules e exatamente igual ao html e css comum.
+
+##### Importando fontes:
+Para importarmos fontes e exatamente igual ao bom e velhor html, podemos passar no próprio `index.html` e utilizar o link para trazer a font, como podemos importar ele para nosso arquivo global e usar o `@import`. 
+
+### Componentes:
+O React ele trabalha muito com componentes e o primeiro passo para manter nossa organização na estrutura de pasta do projeto, nos iremos criar uma pasta chamada `components` dentro do 'src'.
+
+Para chamarmos um componente, nos utilizamos a seguinte sintaxe:
+```jsx
+<Component />
+```
+OBS: o nome 'Component' e na vdd o nome que você põem na função no arquivo jsx.
