@@ -157,3 +157,72 @@ Para chamarmos um componente, nos utilizamos a seguinte sintaxe:
 <Component />
 ```
 OBS: o nome 'Component' e na vdd o nome que você põem na função no arquivo jsx.
+
+### Propriedades:
+Há duas maneiras de usar propriedades, a primeira seria passarmos os valores que queremos no componente, no nosso caso `card` como no exemplo abaixo:
+```jsx
+<Card name="Lucas" time="10:55:25"/>
+<Card name="Ana" time="11:55:25"/>
+```
+
+Após isso precisaremos alterar algumas coisas no componente, iremos adicionar o props.
+```jsx
+export function Card({props}){
+    return(
+        <div className='card'>
+            <strong>{props.name}</strong>
+            <small>{props.time}</small>
+        </div>
+    )
+}
+```
+Porém há uma segunda maneira, que seria desestruturar o props e acessar diretamente os valores:
+```jsx
+export function Card({name, time}){
+    return(
+        <div className='card'>
+            <strong>{name}</strong>
+            <small>{time}</small>
+        </div>
+    )
+}
+```
+
+
+### Estados:
+
+**Qual a defirença do estado para uma variável comun?**  
+<br>
+A variável em algumas situações não consegue refletir valores, porém o useState consegue. Para utilizar o useState que e um hook do react nos precisamos fazer o seguintes passos:
+
+```jsx
+// importar o useStates 
+import React, {useState} from 'react';
+
+// Após isso dentro da nossa função:
+  const [NomeDaVariavel, setNomeDaVariavel] = useState(); // Dentro dos parenteses e o valor inicial, caso deixe vazio ele irá ser vazio, mas e possivel por outra coisa)
+
+```
+
+#### Imutabilidade:
+E o principio dos estados do react respeitam, basicamente diz que o contéudo não deve ser alterado mas sim substituído, assim e muito mais perfomatico.
+
+#### key prop:
+Quando usamos uma estrura de repetição para gerar varios componentes, o proprio react nos avisa sobre a `key` para ajudar o react na analise de estrutura de elementos e ajudar na sua perfomance mas como usamos essa chave?
+
+```jsx
+{
+    students.map(student => (
+      <Card 
+      key={student.time} // De preferencia use um id ou um hash 
+      name={student.name} 
+      time={student.time}
+      />
+    ))
+}
+```
+
+### Hooks
+
+São funções que permite conectar os recursos de estados e ciclo de vida do react a partir de componentes totalmentes funcionais. Sua estrutura padrão e baseada em `useHook` no caso o 'use' em minusculo e o 'hook' seria a função.
+
