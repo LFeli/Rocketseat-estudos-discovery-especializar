@@ -187,3 +187,111 @@ let newUser: User = {
 ```
 
 ### Interseção de tipos
+Para fazermos a interseção de tipos no TS e bem simples, vamos super que há dois types já definidos.
+```ts
+type User = {
+    id: number,
+    name: string
+}
+
+type Char = {
+    nickname: string ,
+    level: number
+}
+```
+Para unirmos em único tipo usaremos o `&`.
+```ts
+type PlayerInfo = User & Char;
+```
+
+Mas vamos supor que eu queira adicionar um novo type e adicionar mais propriedaes e possivel? E a respostas e sim.
+```ts
+type PlayerInfo = User & Char & {
+    status: string
+};
+```
+E você pode juntar quantos tipos quiser.
+
+### Interface
+Uma outra forma de declarar e de criar tipos e usar interface. Sua sintaxe e levemente diferente do type:
+```ts
+interface User { // Não passamos o igual antes da chaves.
+    id: number;  // necessário ponto e vírgula.
+    name: string;
+}
+```
+
+
+### Type vs Interface
+
+O objetivo de ambos são iguais, criar tipagens. Muitas pessoas recomendam usar o type por ser mais simplificado, conversar melhor com os tipos primitivos, mais flexível.   
+Já a interface e mais o pessoal que gosta de criar libs, paradigma da programação orientada a objeto. Mas e muito pessoal essa escolha.
+
+#### Diferenças
+  
+<br> 
+
+`Definição:`
+
+Type:
+```ts
+type User = {
+    id: number;
+    name: string;
+}
+```
+Interface:
+```ts
+interface User {
+    id: number;
+    name: string;
+}
+```
+
+<br> 
+
+`União de tipos:`
+
+Type:
+```ts
+type User = {
+    id: number;
+    name: string;
+}
+
+type Payment = {
+    method: string;
+}
+
+// Fazendo união com Type
+type Account = User & Payment
+```
+Interface:
+```ts
+interface User {
+    id: number;
+    name: string;
+}
+
+interface Payment {
+    method: string;
+}
+
+// Fazendo união com interfaces
+interface Account extends User, Payment {}
+```
+
+### TSconfig
+E um arquivo que pode ser gerado em Javascript ou em JSON que e a parte de configuração do TS, vulgo as regras que ele precisa seguir.
+
+### Adicionando Typescript em um projeto.
+Para instalarmos iremos utilizar o seguinte comando no npm.
+```ts
+npm install --typescript --save-dev
+
+// Não esqueça de instalar os tipos do react
+
+npm i --save-dev @types/react
+```
+
+Após intalarmos o typescript em um projeto react, nos precisamos trocar a extensão do arquivo de `.jsx` para `.tsx`. E a partir disso começar a tipar tudo.
