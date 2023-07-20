@@ -103,3 +103,8 @@ Nesta parte devemos setar algumas configs, como
 Outras opções
 - **Reviewers**: Definir quem irá fazer o review
 - **Assignees**: Responsável pelo PR
+- **Label**: tipo uma tag
+
+
+### Issues 
+Podemos entender as issues como um assunto mal resolvido ou pendencias sobre o o projeto
